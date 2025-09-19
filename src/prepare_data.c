@@ -23,7 +23,7 @@ void add_noise(double *radioactivity, int n) {
   srand(time(NULL));
 
   for (int i = 0; i < n; ++i) {
-    radioactivity[i] += (rand() % 2 - 1) * 0.05;
+    radioactivity[i] += ((double) rand() / RAND_MAX * 2 - 1) * 0.05;
   }
 
   return;
