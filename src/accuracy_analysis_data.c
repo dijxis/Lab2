@@ -10,7 +10,7 @@ double dev_exp(double *radioactivity, double *time,
     return sqrt(sum_residuals1) / M;
 }
 
-double dev_linear(double *radioaktivity, double *time,
+double dev_linear(double *radioactivity, double *time,
                   int M, double decay_rate)
 {
     double sum_residuals2 = 0;
