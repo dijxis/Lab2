@@ -1,3 +1,5 @@
+#include "accuracy_analysis_data.h"
+
 #include <math.h>
 
 double dev_exp(double *radioactivity, double *time,
