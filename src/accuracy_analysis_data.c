@@ -1,4 +1,4 @@
-#include "accuracy_analysis_data.h"
+#include "headers/accuracy_analysis_data.h"
 
 #include <math.h>
 
@@ -7,7 +7,7 @@ double dev_exp(double *radioactivity, double *time,
 {
     double sum_residuals1 = 0;
     for (int i = 0; i < M; i++) {
-        sum_residuals1 += pow((radioactivity[i] - pow(e, -time[i] / decay_time)), 2);
+        sum_residuals1 += pow((radioactivity[i] - pow(M_E, -time[i] / decay_time)), 2);
     }
     return sqrt(sum_residuals1) / M;
 }
