@@ -8,8 +8,9 @@ int getInput(double *const start_time, double *const end_time,
 
 int runExperiment(double start_time, double end_time,
                   double step, double precision,
-                  double *const betta,
-                  double *const interval1, double *const interval2);
+                  double betta, double interval1, double interval2,
+                  double *const decay_time, double *const decay_rate,
+                  double *const time_differences);
 
 #endif // MAIN_H
 
