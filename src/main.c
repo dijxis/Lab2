@@ -14,7 +14,8 @@ int main(int argc, char **argv) {
   double decay_time = 0., decay_rate = 0., time_differences = 0.;
 
   if (checkArg("--test", argc, argv)) {
-    getInput(&start_time, &end_time, &step, &precision);
+    getInput(&start_time, &end_time, &step, &precision,
+             &betta, &interval1, &interval2);
     runExperiment(start_time, end_time, step, precision,
                   betta, interval1, interval2,
                   &decay_time, &decay_rate, &time_differences);
@@ -60,6 +61,8 @@ int getInput(double *const start_time, double *const end_time,
   scanf("%lg", interval1);
   printf("Enter interval2: ");
   scanf("%lg", interval2);
+
+  return 0;
 }
 
 int runExperiment(double start_time, double end_time,
