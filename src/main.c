@@ -1,8 +1,54 @@
 #include <stdio.h>
-#include "head.h"
+#include <string.h>
+#include <assert.h>
 
-int main() {
-  // Add code here
+#include "headers/main.h"
+#include "headers/tests.h"
+#include "headers/prepare_data.h"
+#include "headers/analysis_data.h"
+#include "headers/accuracy_analysis_data.h"
+
+int main(int argc, char **argv) {
+  double start_time, end_time, step, precision;
+
+  if (checkArg("--test", argc, argv))
+    runExperiment();
+  else
+    runTests();
+
+  return 0;
+}
+
+int checkArg(char *arg, int argc, char **argv) {
+  for (int i = 0; i < argc; ++i) {
+    if (strcmp(arg, argv[i]))
+      return 1;
+  }
+  return 0;
+}
+
+int getInput(double *const start_time, double *const end_time,
+             double *const step, double *const precision) {
+  assert(start_time);
+  assert(end_time);
+  assert(step);
+  assert(precision);
+
+  scanf("%lg", start_time);
+  scanf("%lg", end_time);
+  scanf("%lg", step);
+  scanf("%lg", precision);
+}
+
+int runExperiment(double start_time, double end_time,
+                  double step, double precision) {
+  double time[100], radioactivity[100];
+  int n = (end_time - start_time) / step + 1;
+
+  experiment(radioactivity, time,
+             start_time, end_time, step);
+
+  addNoise(radioactivity, n);
 
   return 0;
 }
