@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "headers/analyses_data.h"
+#include "headers/analysis_data.h"
 
 double nonlinear_equation (double *radioactivity, double *time, int n, double precision) {
   double interval1 = 0, interval2 = 0;
