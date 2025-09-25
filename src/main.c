@@ -48,7 +48,7 @@ int runExperiment(double start_time, double end_time,
   experiment(radioactivity, time,
              start_time, end_time, step);
 
-  addNoise(radioactivity, n);
+  add_noise(radioactivity, n);
 
   return 0;
 }
