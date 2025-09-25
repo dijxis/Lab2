@@ -35,27 +35,51 @@ int checkArg(char *arg, int argc, char **argv) {
 }
 
 int getInput(double *const start_time, double *const end_time,
-             double *const step, double *const precision) {
+             double *const step, double *const precision,
+             double *const betta, double *const interval1,
+             double *const interval2) {
   assert(start_time);
   assert(end_time);
   assert(step);
   assert(precision);
+  assert(betta);
+  assert(interval1);
+  assert(interval2);
 
+  printf("Enter start_time: ");
   scanf("%lg", start_time);
+  printf("Enter end_time: ");
   scanf("%lg", end_time);
+  printf("Enter step: ");
   scanf("%lg", step);
+  printf("Enter precision: ");
   scanf("%lg", precision);
+  printf("Enter betta: ");
+  scanf("%lg", betta);
+  printf("Enter interval1: ");
+  scanf("%lg", interval1);
+  printf("Enter interval2: ");
+  scanf("%lg", interval2);
 }
 
 int runExperiment(double start_time, double end_time,
-                  double step, double precision) {
+                  double step, double precision,
+                  double betta, double interval1, double interval2,
+                  double *const decay_time, double *const decay_rate,
+                  double *const time_differences) {
   double time[100], radioactivity[100];
   int n = (end_time - start_time) / step + 1;
 
   experiment(radioactivity, time,
-             start_time, end_time, step);
+             start_time, end_time, step, betta);
 
   add_noise(radioactivity, n);
+
+  *decay_time = nonlinear_equation(radioactivity, time, n, precision);
+
+  *decay_rate = linear_equation(radioactivity, time, n);
+
+  *time_differences = precision_analysis(radioactivity, time, n);
 
   return 0;
 }
