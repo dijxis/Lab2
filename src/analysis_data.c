@@ -31,3 +31,8 @@ double model(double *radioactivity, double *time, int n, double point) {
   }
   return res;
 }
+
+double linear_equation(double *radioactivity, double *time, int n) {
+  // TODO: TODO
+  return 0.;
+}

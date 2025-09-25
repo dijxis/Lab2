@@ -2,6 +2,11 @@
 
 #include "headers/accuracy_analysis_data.h"
 
+double precision_analysis(double *radioactivity, double *time, int n) {
+  // TODO: TODO
+  return 0.;
+}
+
 double dev_exp(double *radioactivity, double *time,
                int M, double decay_time)
 {

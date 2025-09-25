@@ -5,4 +5,6 @@ double nonlinear_equation (double *radioactivity, double *time, int N, double pr
 
 double model(double *radioactivity, double *time, int N, double point);
 
+double linear_equation(double *radioactivity, double *time, int n);
+
 #endif // ANALYSIS_DATA_H
