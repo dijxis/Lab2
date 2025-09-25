@@ -61,6 +61,8 @@ int getInput(double *const start_time, double *const end_time,
   scanf("%lg", interval1);
   printf("Enter interval2: ");
   scanf("%lg", interval2);
+
+  return 0;
 }
 
 int runExperiment(double start_time, double end_time,
