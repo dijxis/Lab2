@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "headers/analyses_data.h"
+#include "headers/analysis_data.h"
 
 double nonlinear_equation (double *radioactivity, double *time, int n, double precision) {
   double interval1 = 0, interval2 = 0;
@@ -30,4 +30,9 @@ double model(double *radioactivity, double *time, int n, double point) {
     res += time[i] * exp(-time[i] / point) * (radioactivity[i] - exp(-time[i] / point));
   }
   return res;
+}
+
+double linear_equation(double *radioactivity, double *time, int n) {
+  // TODO: TODO
+  return 0.;
 }
