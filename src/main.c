@@ -1,6 +1,6 @@
+#include <assert.h>
 #include <stdio.h>
 #include <string.h>
-#include <assert.h>
 
 #include "headers/main.h"
 #include "headers/tests.h"
@@ -9,12 +9,17 @@
 #include "headers/accuracy_analysis_data.h"
 
 int main(int argc, char **argv) {
-  double start_time, end_time, step, precision;
+  double start_time = 0., end_time = 0., step = 0., precision = 0.;
+  double betta = 0., interval1 = 0., interval2 = 0.;
 
-  if (checkArg("--test", argc, argv))
-    runExperiment();
-  else
+  if (checkArg("--test", argc, argv)) {
+    getInput(&start_time, &end_time, &step, &precision);
+    runExperiment(start_time, end_time, step, precision,
+                  &betta, &interval1, &interval2);
+  }
+  else {
     runTests();
+  }
 
   return 0;
 }
