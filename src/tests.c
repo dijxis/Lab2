@@ -15,7 +15,7 @@ int runTests() {
     fclose(fp);
     runExperiment(params[0], params[1], params[2], params[3], params[4], params[5], params[6], &decay_time, &decay_rate, &time_differences);
     if (!(abs(params[7] - decay_time) <= 0.5 && abs(params[8] - decay_rate) <= 0.5 && params[9] <= time_differences && time_differences <= params[10])) {
-      printf("Ошибка в тесте %d", i);
+      printf("Ошибка в тесте %d.", i);
     }
   }
 }
