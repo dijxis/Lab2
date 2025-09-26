@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "headers/main.h"
+#include "headers/tests.h"
 
 int runTests() {
   const int COUNT_PARAMS = 11;
@@ -16,8 +17,8 @@ int runTests() {
     char id = '0' + i;
     FILE * fp = fopen(strcat(strcat("../tests/test", &id), ".txt"), "r");
     assert(fp != NULL);
-    for (int j = 0; j < COUNT_PARAMS; j++) {
-      fscanf(fp, "%lf", &params[j]);
+    for (int k = 0; k < COUNT_PARAMS; k++) {
+      fscanf(fp, "%lf", &params[k]);
     }
     fclose(fp);
     runExperiment(params[0], params[1], params[2],
