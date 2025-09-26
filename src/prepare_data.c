@@ -31,5 +31,6 @@ void add_noise(double *radioactivity, int n) {
 }
 
 double fdecay(double t, double betta) {
-  return pow(M_E, -t / betta);
+  const double E_CONST = 2.718281828459045235360287471352;
+  return pow(E_CONST, -t / betta);
 }

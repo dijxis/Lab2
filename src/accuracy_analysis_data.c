@@ -32,9 +32,10 @@ double precision_analysis(double *radioactivity, double *time, int n,
 double dev_exp(double *radioactivity, double *time,
                int M, double decay_time)
 {
+    const double E_CONST = 2.718281828459045235360287471352;
     double sum_residuals1 = 0;
     for (int i = 0; i < M; i++) {
-        sum_residuals1 += pow((radioactivity[i] - pow(M_E, -time[i] / decay_time)), 2);
+        sum_residuals1 += pow((radioactivity[i] - pow(E_CONST, -time[i] / decay_time)), 2);
     }
     return sqrt(sum_residuals1) / M;
 }
