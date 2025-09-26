@@ -16,9 +16,11 @@ all: $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $^ $(FLAGS) $(CFLAGS) -o $@
 
-$(OBJECTS_DIR)/%.o: $(FILES_DIR)/%.c
-	if [[ -d "./build/" ]]; then mkdir ./build/; fi
+$(OBJECTS_DIR)/%.o: $(FILES_DIR)/%.c $(OBJECTS_DIR)
 	$(CC) $(CFLAGS) -c $< $(FLAGS) -o $@
+
+$(OBJECTS_DIR):
+	mkdir ./build/
 
 run: $(EXECUTABLE)
 	cd ./build; ./main; cd ..
