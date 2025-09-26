@@ -82,7 +82,7 @@ int runExperiment(double start_time, double end_time,
 
   *decay_rate = linear_equation(radioactivity, time, n);
 
-  *time_differences = precision_analysis(radioactivity, time, n);
+  *time_differences = precision_analysis(radioactivity, time, n, precision);
 
   return 0;
 }
