@@ -1,6 +1,7 @@
 #include <math.h>
 
 #include "headers/accuracy_analysis_data.h"
+#include "headers/analysis_data.h"
 
 double precision_analysis(double *radioactivity, double *time, int n, double precision) {
   int m = 10;
