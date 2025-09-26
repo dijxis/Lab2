@@ -37,7 +37,7 @@ double dev_exp(double *radioactivity, double *time,
     for (int i = 0; i < M; i++) {
         sum_residuals1 += pow((radioactivity[i] - pow(E_CONST, -time[i] / decay_time)), 2);
     }
-    return sqrt(sum_residuals1) / M;
+    return sqrt(sum_residuals1 / M);
 }
 
 double dev_linear(double *radioactivity, double *time,
@@ -47,5 +47,5 @@ double dev_linear(double *radioactivity, double *time,
     for (int i = 0; i < M; i++) {
         sum_residuals2 += pow((radioactivity[i] - (1 - time[i] / decay_rate)), 2);
     }
-    return sqrt(sum_residuals2) / M;
+    return sqrt(sum_residuals2 / M);
 }
