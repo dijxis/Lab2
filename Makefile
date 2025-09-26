@@ -17,6 +17,7 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $^ $(FLAGS) $(CFLAGS) -o $@
 
 $(OBJECTS_DIR)/%.o: $(FILES_DIR)/%.c
+	if [[ -d "./build/" ]]; then mkdir ./build/; fi
 	$(CC) $(CFLAGS) -c $< $(FLAGS) -o $@
 
 run: $(EXECUTABLE)
