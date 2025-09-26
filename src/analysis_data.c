@@ -33,6 +33,13 @@ double model(double *radioactivity, double *time, int n, double point) {
 }
 
 double linear_equation(double *radioactivity, double *time, int n) {
-  // TODO: TODO
-  return 0.;
+  double sum_t_squared = 0.0;
+  double sum_t_times_diff = 0.0;
+  
+  for (int i = 0; i < N; i++) {
+      sum_t_squared += time[i] * time[i];
+      sum_t_times_diff += time[i] * (1.0 - radioactivity[i]);
+  }
+  
+  return sum_t_squared / sum_t_times_diff;
 }
