@@ -18,7 +18,7 @@ double precision_analysis(double *radioactivity, double *time, int n,
           time_differences = time[m - 1];
           break;
       }
-      n++;
+      m++;
       
       if (m > n) {
           time_differences = time[n - 1];
