@@ -3,8 +3,28 @@
 #include "headers/accuracy_analysis_data.h"
 
 double precision_analysis(double *radioactivity, double *time, int n) {
-  // TODO: TODO
-  return 0.;
+  int M = 10;
+  double time_differences = 0.0;
+  while (M <= N) {
+      double decay_time = nonlinear_equation(radioactivity, time, M, precision, interval1, interval2);
+      double decay_rate = linear_equation(radioactivity, time, M);
+      
+      double deviation1 = dev_exp(radioactivity, time, M, decay_time);
+      double deviation2 = dev_linear(radioactivity, time, M, decay_rate);
+      
+      if (deviation2 > 2.0 * deviation1) {
+          time_differences = time[M - 1];
+          break;
+      }
+      M++;
+      
+      if (M > N) {
+          time_differences = time[N - 1];
+          break;
+      }
+  }
+  
+  return time_differences;
 }
 
 double dev_exp(double *radioactivity, double *time,
