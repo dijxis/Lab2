@@ -2,7 +2,7 @@
 
 #include "headers/accuracy_analysis_data.h"
 
-double precision_analysis(double *radioactivity, double *time, int n) {
+double precision_analysis(double *radioactivity, double *time, int n, double precision) {
   int m = 10;
   double time_differences = 0.0;
   while (m <= n) {
