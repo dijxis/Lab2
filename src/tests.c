@@ -24,8 +24,12 @@ int runTests() {
                   params[3], params[4], params[5],
                   params[6], &decay_time,
                   &decay_rate, &time_differences);
-    if (!(fabs(params[7] - decay_time) <= 0.05 && fabs(params[8] - decay_rate) <= 0.05 && params[9] <= time_differences && time_differences <= params[10])) {
-      fprintf(stderr, "Ошибка в тесте %d Должны быть значения %lf +- 0.05 %lf +- 0.05 %lf : %lf, а результат %lf %lf %lf.", i, params[7], params[8], params[9], params[10], decay_time, decay_rate, time_differences);
+    if (!(fabs(params[7] - decay_time) <= 0.05 &&
+        fabs(params[8] - decay_rate) <= 0.05 &&
+        params[9] <= time_differences && time_differences <= params[10])) {
+      fprintf(stderr,
+              "Ошибка в тесте %d Должны быть значения %lf +- 0.05 %lf +- 0.05 %lf : %lf, а результат %lf %lf %lf.",
+              i, params[7], params[8], params[9], params[10], decay_time, decay_rate, time_differences);
       err_flag = 1;
     }
   }
