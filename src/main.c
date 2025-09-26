@@ -78,11 +78,11 @@ int runExperiment(double start_time, double end_time,
 
   add_noise(radioactivity, n);
 
-  *decay_time = nonlinear_equation(radioactivity, time, n, precision);
+  *decay_time = nonlinear_equation(radioactivity, time, n, precision, interval1, interval2);
 
   *decay_rate = linear_equation(radioactivity, time, n);
 
-  *time_differences = precision_analysis(radioactivity, time, n, precision);
+  *time_differences = precision_analysis(radioactivity, time, n, precision, interval1, interval2);
 
   return 0;
 }
