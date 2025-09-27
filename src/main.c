@@ -75,7 +75,7 @@ int runExperiment(double start_time, double end_time,
                   double *const decay_time, double *const decay_rate,
                   double *const time_differences) {
   double time[100] = {}, radioactivity[100] = {};
-  int n = (end_time - start_time) / step + 1;
+  int n = (int)((end_time - start_time) / step) + 1;
 
   experiment(radioactivity, time,
              start_time, end_time, step, betta);
