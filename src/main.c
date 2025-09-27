@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
   double betta = 0., interval1 = 0., interval2 = 0.;
   double decay_time = 0., decay_rate = 0., time_differences = 0.;
 
-  if (! checkArg("--test", argc, argv)) {
+  if (!checkArg("--test", argc, argv)) {
     getInput(&start_time, &end_time, &step, &precision,
              &betta, &interval1, &interval2);
     runExperiment(start_time, end_time, step, precision,
@@ -74,11 +74,10 @@ int runExperiment(double start_time, double end_time,
                   double betta, double interval1, double interval2,
                   double *const decay_time, double *const decay_rate,
                   double *const time_differences) {
-  double time[100] = {}, radioactivity[100] = {};
-  int n = (int)((end_time - start_time) / step) + 1;
+  double radioactivity[100] = {}, time[100] = {};
+  int n;
 
-  experiment(radioactivity, time,
-             start_time, end_time, step, betta);
+  n = experiment(radioactivity, time, start_time, end_time, step, betta);
 
   add_noise(radioactivity, n);
 
