@@ -14,16 +14,16 @@ EXECUTABLE=build/main
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $^ $(FLAGS) $(CFLAGS) -o $@
+	@$(CC) $^ $(FLAGS) $(CFLAGS) -o $@
 
 $(OBJECTS_DIR)/%.o: $(FILES_DIR)/%.c $(OBJECTS_DIR)
-	$(CC) $(CFLAGS) -c $< $(FLAGS) -o $@
+	@$(CC) $(CFLAGS) -c $< $(FLAGS) -o $@
 
 $(OBJECTS_DIR):
-	mkdir ./build/
+	@mkdir ./build/
 
 run: $(EXECUTABLE)
-	cd ./build; ./main; cd ..
+	@cd ./build; ./main; cd ..
 
 clean:
-	rm -rf $(OBJECTS) $(EXECUTABLE)
+	@rm -rf $(OBJECTS) $(EXECUTABLE) $(OBJECTS_DIR)
