@@ -7,7 +7,8 @@
 int experiment(double *radioactivity, double *time,
                double start_time, double end_time, double step,
                double betta) {
-  int n = 0, cur_time = 0;
+  int n = 0;
+  double cur_time = 0;
   for (n = 0, cur_time = start_time;
        cur_time <= end_time && n < 100;
        ++n, cur_time += step) {
