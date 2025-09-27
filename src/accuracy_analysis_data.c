@@ -7,7 +7,7 @@ double precision_analysis(double *radioactivity, double *time, int n,
                           double precision, double interval1,  double interval2) {
   double time_differences = time[n - 1] - time[0];
 
-  for (int m = 10; m <= n; ++m) {
+  for (int m = 10; m < n; ++m) {
       double decay_time = nonlinear_equation(radioactivity, time, m, precision, interval1, interval2);
       double decay_rate = linear_equation(radioactivity, time, m);
 
@@ -15,7 +15,7 @@ double precision_analysis(double *radioactivity, double *time, int n,
       double deviation2 = dev_linear(radioactivity, time, m, decay_rate);
 
       if (deviation2 > 2.0 * deviation1) {
-          time_differences = time[m - 1] - time[0];
+          time_differences = time[m] - time[0];
           break;
       }
   }
