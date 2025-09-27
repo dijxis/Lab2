@@ -13,8 +13,8 @@ int runTests() {
   double params[COUNT_PARAMS] = {};
   double decay_time = 0, decay_rate = 0, time_differences = 0;
   int err_flag = 0;
-  char *tests[AMOUNT_OF_FILES] = {"./tests/test0.txt", "./tests/test1.txt", "./tests/test2.txt",
-                    "./tests/test3.txt", "./tests/test4.txt", "./tests/test5.txt", "./tests/test6.txt"};
+  char *tests[AMOUNT_OF_FILES] = {"./tests/test0.txt", "./tests/test1.txt", "./tests/test2.txt", "./tests/test3.txt",
+                                  "./tests/test4.txt", "./tests/test5.txt", "./tests/test6.txt"};
 
   for (int i = 0, j = '0'; i < AMOUNT_OF_FILES; i++, j++) {
     FILE *fp = fopen(tests[i], "r");
