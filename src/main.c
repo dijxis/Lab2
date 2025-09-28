@@ -13,12 +13,15 @@ int main(int argc, char **argv) {
   double betta = 0., interval1 = 0., interval2 = 0.;
   double decay_time = 0., decay_rate = 0., time_differences = 0.;
 
-  if (checkArg("--test", argc, argv)) {
+  if (!checkArg("--test", argc, argv)) {
     getInput(&start_time, &end_time, &step, &precision,
              &betta, &interval1, &interval2);
     runExperiment(start_time, end_time, step, precision,
                   betta, interval1, interval2,
                   &decay_time, &decay_rate, &time_differences);
+    printf("decay_time: %lg\n", decay_time);
+    printf("decay_rate: %lg\n", decay_rate);
+    printf("time_differences: %lg\n", time_differences);
   }
   else {
     runTests();
@@ -29,7 +32,7 @@ int main(int argc, char **argv) {
 
 int checkArg(char *arg, int argc, char **argv) {
   for (int i = 0; i < argc; ++i) {
-    if (strcmp(arg, argv[i]))
+    if (! strcmp(arg, argv[i]))
       return 1;
   }
   return 0;
@@ -61,6 +64,7 @@ int getInput(double *const start_time, double *const end_time,
   scanf("%lg", interval1);
   printf("Enter interval2: ");
   scanf("%lg", interval2);
+  printf("\n");
 
   return 0;
 }
@@ -70,11 +74,10 @@ int runExperiment(double start_time, double end_time,
                   double betta, double interval1, double interval2,
                   double *const decay_time, double *const decay_rate,
                   double *const time_differences) {
-  double time[100], radioactivity[100];
-  int n = (end_time - start_time) / step + 1;
+  double radioactivity[100] = {}, time[100] = {};
+  int n;
 
-  experiment(radioactivity, time,
-             start_time, end_time, step, betta);
+  n = experiment(radioactivity, time, start_time, end_time, step, betta);
 
   add_noise(radioactivity, n);
 

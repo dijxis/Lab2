@@ -7,6 +7,4 @@ int experiment(double *radioactivity, double *time,
 
 void add_noise(double *radioactivity, int n);
 
-double fdecay(double t, double betta);
-
 #endif // PREPARE_DATA_H
